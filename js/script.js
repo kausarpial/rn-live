@@ -41,7 +41,7 @@ function PageLoad() {
   console.log(window.location.pathname);
 
   if(window.location.pathname == '/' || window.location.pathname == '/index.html'){
-    Hero Timeline
+    // Hero Timeline
     var heroTimeline = new TimelineMax, 
         mySplitText = new SplitText(".splitFade", {type:"words"}), 
         chars = mySplitText.words; 
