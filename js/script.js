@@ -41,16 +41,16 @@ function PageLoad() {
   console.log(window.location.pathname);
 
   if(window.location.pathname == '/' || window.location.pathname == '/index.html'){
-    // Hero Timeline
-    // var heroTimeline = new TimelineMax, 
-    //     mySplitText = new SplitText(".splitFade", {type:"words"}), 
-    //     chars = mySplitText.words; 
-    //     heroTimeline.staggerFrom(chars, 1, 
-    //       {
-    //         opacity:0, 
-    //         y:80,  ease:Power3.easeOut
-    //       }, 0.2, "+=0");
-    // heroTimeline.pause();
+    Hero Timeline
+    var heroTimeline = new TimelineMax, 
+        mySplitText = new SplitText(".splitFade", {type:"words"}), 
+        chars = mySplitText.words; 
+        heroTimeline.staggerFrom(chars, 1, 
+          {
+            opacity:0, 
+            y:80,  ease:Power3.easeOut
+          }, 0.2, "+=0");
+    heroTimeline.pause();
     
     // Mountain Timeline
     var mountainTimeline = new TimelineMax();
@@ -88,9 +88,9 @@ function PageLoad() {
     }
     TweenMax.from('.site-hero .magnetic', 1, {opacity:0, y: 100, delay: 2.2, ease: Power3.easeOut});
     TweenMax.from('.site-hero-image', 1.3, {opacity:0, y: 500, delay: 2, ease: Power3.easeOut});
-    if(window.location.pathname == '/' || window.location.pathname == '/index.html'){
+    if(window.location.pathname == '/' || window.location.pathname == '/index.html' || window.location.pathname == '/rn-live/' || window.location.pathname == '/rn-live/index.html' ){
       setTimeout(() => {
-        // heroTimeline.restart();
+        heroTimeline.restart();
         mountainTimeline.restart();
       }, 700);
     }
