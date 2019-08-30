@@ -90,8 +90,8 @@ function PageLoad() {
     TweenMax.from('.site-hero-image', 1.3, {opacity:0, y: 500, delay: 2, ease: Power3.easeOut});
     if(window.location.pathname == '/' || window.location.pathname == '/index.html' || window.location.pathname == '/rn-live/' || window.location.pathname == '/rn-live/index.html' ){
       setTimeout(() => {
-        heroTimeline.restart();
-        mountainTimeline.restart();
+        heroTimeline.play();
+        mountainTimeline.play();
       }, 700);
     }
   }, time);
