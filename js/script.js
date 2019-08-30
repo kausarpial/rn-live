@@ -38,31 +38,6 @@ function PageLoad() {
     }, stepTime);
   }
 
-  console.log(window.location.pathname);
-
-  if(window.location.pathname == '/' || window.location.pathname == '/index.html'){
-    // Hero Timeline
-    var heroTimeline = new TimelineMax, 
-        mySplitText = new SplitText(".splitFade", {type:"words"}), 
-        chars = mySplitText.words; 
-        heroTimeline.staggerFrom(chars, 1, 
-          {
-            opacity:0, 
-            y:80,  ease:Power3.easeOut
-          }, 0.2, "+=0");
-    heroTimeline.pause();
-    
-    // Mountain Timeline
-    var mountainTimeline = new TimelineMax();
-    mountainTimeline.staggerFrom('.mountain', 0.8, 
-      {
-        opacity:0, 
-        y:500,  ease:Power3.easeOut
-      }, 0.3, "+=0");
-    mountainTimeline.pause();
-  }
-
-
   // Fading Out Loadbar on Finised
   setTimeout(function() {
     TweenMax.to($(".percentage, .preloader-text"), 0.7, {
@@ -77,6 +52,29 @@ function PageLoad() {
       delay: 0.2,
       ease: Power3.easeInOut
     });
+
+    console.log(window.location.pathname);
+    if(window.location.pathname == '/' || window.location.pathname == '/index.html' || window.location.pathname == '/rn-live/' || window.location.pathname == '/rn-live/index.html'){
+      // Hero Timeline
+      var heroTimeline = new TimelineMax, 
+          mySplitText = new SplitText(".splitFade", {type:"words"}), 
+          chars = mySplitText.words; 
+          heroTimeline.staggerFrom(chars, 1, 
+            {
+              opacity:0, 
+              y:80,  ease:Power3.easeOut
+            }, 0.2, "+=0");
+      heroTimeline.pause();
+      
+      // Mountain Timeline
+      var mountainTimeline = new TimelineMax();
+      mountainTimeline.staggerFrom('.mountain', 0.8, 
+        {
+          opacity:0, 
+          y:500,  ease:Power3.easeOut
+        }, 0.3, "+=0");
+      mountainTimeline.pause();
+    }
     if ($(".main").length > 0) {
       $(".main").addClass("animate");
     }
@@ -88,9 +86,10 @@ function PageLoad() {
     }
     TweenMax.from('.site-hero .magnetic', 1, {opacity:0, y: 100, delay: 2.2, ease: Power3.easeOut});
     TweenMax.from('.site-hero-image', 1.3, {opacity:0, y: 500, delay: 2, ease: Power3.easeOut});
+    
     if(window.location.pathname == '/' || window.location.pathname == '/index.html' || window.location.pathname == '/rn-live/' || window.location.pathname == '/rn-live/index.html' ){
       setTimeout(() => {
-        // heroTimeline.play();
+        heroTimeline.play();
         mountainTimeline.play();
       }, 700);
     }
